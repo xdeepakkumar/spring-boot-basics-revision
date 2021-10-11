@@ -1,11 +1,54 @@
 server:
   port: 8081
+  
+welcome:
+  message: Welcome To Code Buffer Tutorial
+  
+  
+spring:  profiles:    active: qa
+  
+---
  
 spring:
+  profiles: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    url: jdbc:mysql://localhost:3307/dcbapp
+    url: jdbc:mysql://localhost:3307/dcbapp-dev
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+welcome:
+  message: Welcome To Code Buffer Tutorial
+  
+---
+
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3307/dcbapp-qa
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+welcome:
+  message: Welcome To Code Buffer Tutorial
+  
+---
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3307/dcbapp-prod
     password: root
   jpa:
     hibernate:
