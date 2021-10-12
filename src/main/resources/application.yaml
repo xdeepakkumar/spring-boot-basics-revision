@@ -41,6 +41,7 @@ spring:
 welcome:
   message: Welcome To Code Buffer Tutorial
   
+management:  endpoints:    web:      exposure:        include: "*"
 ---
 
 spring:
